@@ -1,17 +1,17 @@
 #if __has_include("\x\A3A\addons\core\script_component.hpp")
 #include "\x\A3A\addons\core\script_component.hpp"
-name = QUOTE(Antistasi Plus);
-logo = QPATHTOFOLDER(Pictures\antistasi_plus_logo_sw.paa);
-logoOver = QPATHTOFOLDER(Pictures\antistasi_plus_logo.paa);
-logoSmall = QPATHTOFOLDER(Pictures\antistasi_plus_logo_small.paa);
-picture = QPATHTOFOLDER(Pictures\antistasi_plus_overview.paa);
+name = QUOTE(Superstasi);
+logo = QPATHTOFOLDER(Pictures\superstasi_logo.paa);
+logoOver = QPATHTOFOLDER(Pictures\superstasi_logo.paa);
+logoSmall = QPATHTOFOLDER(Pictures\superstasi_logo.paa);
+picture = QPATHTOFOLDER(Pictures\superstasi_logo.paa);
 #else
-name = "Antistasi Plus - Superstasi Fork";
+name = "Superstasi";
 #endif
 author = "Zwiadowca";
 description = "";
-tooltip = "Antistasi Plus - Superstasi Fork";
-tooltipOwned = "Antistasi Plus - Superstasi Fork";
+tooltip = "Superstasi";
+tooltipOwned = "Superstasi";
 overview = "<br/><t align='center' size='0.75'> An Arma 3 persistent multiplayer scenario about guerilla warfare tactics. Fork of Antistasi Community Version focused on expanding player's capabilities and introducing new gameplay features. </t><br/><br/>";
 hideName = 0;
 hidePicture = 0;

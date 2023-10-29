@@ -23,15 +23,15 @@ private _vehiclesAA = [];
 ["vehiclesBoat", ["I_C_Boat_Transport_02_F"]] call _fnc_saveToTemplate;
 ["vehiclesPlane", ["I_C_Plane_Civil_01_F"]] call _fnc_saveToTemplate;
 
-private _vehiclesCivCar = ["C_Offroad_01_F", "C_Hatchback_01_F", "C_Hatchback_01_sport_F", "C_SUV_01_F", "C_IDAP_Offroad_01_F"];
+private _vehiclesCivCar = ["C_Offroad_01_F", "C_Hatchback_01_F", "C_Hatchback_01_sport_F", "C_SUV_01_F"];
 ["vehiclesCivTruck", ["C_Truck_02_transport_F", "C_Van_02_transport_F", "C_Van_02_vehicle_F"]] call _fnc_saveToTemplate;
-["vehiclesCivHeli", ["C_Heli_Light_01_civil_F", "C_IDAP_Heli_Transport_02_F"]] call _fnc_saveToTemplate;
+["vehiclesCivHeli", ["C_Heli_Light_01_civil_F"]] call _fnc_saveToTemplate;
 ["vehiclesCivBoat", ["C_Boat_Civil_01_F", "C_Rubberboat"]] call _fnc_saveToTemplate;
 
 
 ["staticMGs", ["I_G_HMG_02_high_F", "I_G_HMG_02_F"]] call _fnc_saveToTemplate;
 ["staticAT", ["I_static_AT_F"]] call _fnc_saveToTemplate;
-private _staticAA = ["Aegis_I_G_ZU23_lxWS_F"];
+private _staticAA = ["I_static_AA_F"];
 ["staticMortars", ["I_G_Mortar_01_F"]] call _fnc_saveToTemplate;
 ["staticMortarMagHE", "8Rnd_82mm_Mo_shells"] call _fnc_saveToTemplate;
 ["staticMortarMagSmoke", "8Rnd_82mm_Mo_Smoke_white"] call _fnc_saveToTemplate;
@@ -77,48 +77,24 @@ private _shopWs = if (_hasWs) then {
 };
 
 private _vehiclesBlackMarket = _shopWs + [
-    ["I_UAV_01_F", 3000, "UAV", {tierWar > 4}],
-    ["I_Static_Designator_01_F", 5000, "UAV", {tierWar > 4}],
-    ["Atlas_I_I_UAV_03_dynamicLoadout_F", 13000, "UAV", {tierWar > 6 && {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count (milbases + airportsX) > 1}}],
-    ["O_R_UAV_02_dynamicLoadout_F", 10000, "UAV", {tierWar > 5 && {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count (milbases + airportsX) > 0}}],
-    ["B_UAV_05_F", 30000, "UAV", {tierWar > 7 && {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count (milbases + airportsX) > 2}}],
-
+    ["I_UAV_01_F", 2000, "UAV", {true}],
     ["I_LT_01_AA_F", 7500, "AA", {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count (milbases + airportsX) > 0}],
-    ["I_static_AA_F", 3000, "AA", {tierWar > 2}],
-    ["I_A_Truck_02_aa_lxWS", 3000, "AA", {tierWar > 3}],
-    ["Atlas_I_I_APC_Tracked_01_AA_F", 25000, "AA", {tierWar > 6 && {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count (milbases + airportsX) > 2}}],
-    ["O_R_Radar_System_02_F", 65000, "AA", {tierWar > 8 && {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count (milbases + airportsX) > 3}}],
-    ["O_R_SAM_System_04_F", 40000, "AA", {tierWar > 8 && {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count (milbases + airportsX) > 3}}],
-
-    ["Atlas_I_I_MBT_01_arty_F", 45000, "ARTILLERY", {tierWar > 6 && {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count (milbases + airportsX) > 2}}],
-    ["I_Truck_02_MRL_F", 65000, "ARTILLERY", {tierWar > 7 && {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count (milbases + airportsX) > 2}}],
-
-    ["O_R_LSV_02_armed_F", 4000, "CAR", {tierWar > 3}],
-    ["O_R_LSV_02_AT_F", 8000, "CAR", {tierWar > 4}],
-    ["B_LSV_01_light_F", 3000, "CAR", {tierWar > 3}],
-    ["I_MRAP_03_hmg_F", 6500, "CAR", {tierWar > 4}],
-    ["I_Truck_02_flatbed_lxWS", 7500, "CAR", {tierWar > 3}],
-
-    ["I_APC_Wheeled_03_cannon_F", 12000, "APC", {tierWar > 5 && {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count (milbases + airportsX) > 1}}],
-    ["Atlas_I_UNO_APC_Wheeled_04_cannon_F", 17000, "APC", {tierWar > 6 && {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count (milbases + airportsX) > 1}}],
-
-    ["I_APC_tracked_03_cannon_v2_F", 22000, "APC", {tierWar > 6 && {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count (milbases + airportsX) > 2}}],
-
-    ["I_MBT_03_cannon_F", 25000, "TANK", {tierWar > 7 && {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count (milbases + airportsX) > 2}}],
-    ["B_MBT_03_cannon_lxWS", 27000, "TANK", {tierWar > 8 && {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count (milbases + airportsX) > 2}}],
-
-    ["I_Plane_Fighter_03_dynamicLoadout_F", 25000, "PLANE", {tierWar > 6 && {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count airportsX > 1}}],
-    ["I_Plane_Fighter_04_F", 40000, "PLANE", {tierWar > 7 && {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count airportsX > 2}}],
-    ["O_R_Plane_CAS_02_dynamicLoadout_F", 55000, "PLANE", {tierWar > 8 && {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count (milbases + airportsX) > 3}}],
-    ["I_Plane_Transport_01_vehicle_F", 45000, "PLANE", {tierWar > 7 && {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count (milbases + airportsX) > 2}}],
-
-    ["I_Heli_Light_01_dynamicLoadout_F", 8000, "HELI", {tierWar > 4 &&{ {sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count (milbases + airportsX) > 1}}],
-    ["I_Heli_light_03_dynamicLoadout_F", 12000, "HELI", {tierWar > 5 &&{ {sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count (milbases + airportsX) > 2}}]
+    ["I_LT_01_scout_F", 7500, "AA", {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count (milbases + airportsX) > 0}],
+    ["I_LT_01_cannon_F", 10000, "TANK", {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count (milbases + airportsX) > 0}],
+    ["I_LT_01_AT_F", 11000, "TANK", {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count (milbases + airportsX) > 0}],
+    ["I_G_APC_Wheeled_03_cannon_F", 15000, "APC", {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count seaports > 0}],
+    ["I_Heli_Light_01_F", 7000, "HELI", {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count airportsX > 0}],
+    ["I_Heli_Light_01_dynamicLoadout_F", 25000, "HELI", {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count airportsX > 0}]
 ];
 ["blackMarketStock", _vehiclesBlackMarket] call _fnc_saveToTemplate;
 
 ["variants", [
-    ["I_LT_01_AA_F", ["Indep_Olive",1]]
+    ["I_LT_01_AA_F", ["Indep_Olive",1]],
+    ["I_LT_01_scout_F", ["Indep_Olive",1]],
+    ["I_LT_01_cannon_F", ["Indep_Olive",1]],
+    ["I_LT_01_AT_F", ["Indep_Olive",1]],
+    ["I_Heli_Light_01_F", ["Black",1]],
+    ["I_Heli_Light_01_dynamicLoadout_F", ["Black",1]]
 ]] call _fnc_saveToTemplate;
 
 #include "Aegis_Reb_Vehicle_Attributes.sqf"

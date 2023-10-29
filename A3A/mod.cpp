@@ -1,10 +1,10 @@
 #if __has_include("\x\A3A\addons\core\script_component.hpp")
 #include "\x\A3A\addons\core\script_component.hpp"
 name = QUOTE(Antistasi Plus);
-logo = QPATHTOFOLDER(Pictures\antistasi_plus_logo_sw.paa);
-logoOver = QPATHTOFOLDER(Pictures\antistasi_plus_logo.paa);
-logoSmall = QPATHTOFOLDER(Pictures\antistasi_plus_logo_small.paa);
-picture = QPATHTOFOLDER(Pictures\antistasi_plus_overview.paa);
+logo = QPATHTOFOLDER(Pictures\superstasi_logo.paa);
+logoOver = QPATHTOFOLDER(Pictures\superstasi_logo.paa);
+logoSmall = QPATHTOFOLDER(Pictures\superstasi_logo.paa);
+picture = QPATHTOFOLDER(Pictures\superstasi_logo.paa);
 #else
 name = "Antistasi Plus";
 #endif
