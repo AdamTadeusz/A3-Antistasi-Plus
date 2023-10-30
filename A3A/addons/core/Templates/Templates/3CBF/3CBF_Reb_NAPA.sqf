@@ -21,7 +21,7 @@ private _hasLawsOfWar = "orange" in A3A_enabledDLC;
 
 ["vehiclesPlane", ["UK3CB_CHC_I_Antonov_AN2", "UK3CB_NAP_I_C400"]] call _fnc_saveToTemplate;
 
-["vehiclesCivCar", ["C_IDAP_Offroad_01_F"]] call _fnc_saveToTemplate;
+["vehiclesCivCar", ["UK3CB_ADC_C_Skoda"]] call _fnc_saveToTemplate;
 ["vehiclesCivTruck", ["UK3CB_CHC_C_Ural_Open"]] call _fnc_saveToTemplate;
 ["vehiclesCivHeli", ["UK3CB_CHC_C_Mi8AMT"]] call _fnc_saveToTemplate;
 ["vehiclesCivBoat", ["UK3CB_CHC_C_Fishing_Boat"]] call _fnc_saveToTemplate;
@@ -87,90 +87,36 @@ private _hasLawsOfWar = "orange" in A3A_enabledDLC;
 //////////////////////////////////////
 
 ["blackMarketStock", [
-    //Anti-Air Vehicles
-    ["rhsgref_cdf_b_Igla_AA_pod", 3500, "STATICAA", {true}],
-    ["rhsgref_cdf_b_zsu234", 9500, "AA", {tierWar > 4 && {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count (milbases + airportsX) > 0}}],
-    ["UK3CB_CW_SOV_O_LATE_2S6_Tunguska", 17000, "AA", {tierWar > 6 && {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count (milbases + airportsX) > 2}}],
-    ["O_Radar_System_02_F", 125000, "STATICAA", {tierWar > 8 && {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count (milbases + airportsX) > 3}}],
-    ["O_SAM_System_04_F", 60000, "STATICAA", {tierWar > 8 && {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count (milbases + airportsX) > 3}}],
+    ["UK3CB_LDF_I_RBS70", 2500, "STATICAA", {tierWar > 3}],
+    ["UK3CB_CW_US_B_LATE_TOW_TriPod", 3000, "STATICAT", {tierWar > 3}],
+    ["rhsgref_nat_AGS30_TriPod", 3000, "STATICMG", {tierWar > 3}],
 
-    //Static AA, AT, GMG's and HMG's
-    ["rhs_Kornet_9M133_2_msv", 3000, "STATICAT", {tierWar > 3}],
-    ["rhsgref_nat_AGS30_TriPod", 2500, "STATICMG", {tierWar > 2}],
-    ["ace_dragon_staticAssembled", 4000, "STATICAT", {tierWar > 2}],
-    ["O_Static_Designator_02_F", 5000, "STATICAT", {tierWar > 5}],
+    ["UK3CB_NAP_I_Hilux_Mortar", 15000, "ARTILLERY", {tierWar > 5}],
+    ["UK3CB_NAP_I_Hilux_Rocket", 25000, "ARTILLERY", {tierWar > 7}],
+    ["UK3CB_NAP_I_Hilux_Rocket_Arty", 30000, "ARTILLERY", {tierWar > 8}],
+
+    ["UK3CB_NAP_I_Hilux_Zu23", 1750, "CAR", {tierWar > 2}],
+    ["UK3CB_NAP_I_Hilux_GMG", 2500, "CAR", {tierWar > 2}],
+    ["UK3CB_NAP_I_BRDM2_UM", 1750, "CAR", {true}],
+    ["UK3CB_NAP_I_BRDM2_HQ", 2050, "CAR", {true}],
+    ["UK3CB_NAP_I_BRDM2", 2500, "CAR", {true}],
+
+    ["UK3CB_NAP_I_MTLB_PKT", 2000, "APC", {true}],
+    ["UK3CB_NAP_I_BTR60", 5000, "APC", {true}],
+    ["UK3CB_NAP_I_BMP1", 9000, "APC", {tierWar > 3 && {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count (milbases + airportsX) > 0}}],
+    ["UK3CB_NAP_I_BMP2", 12500, "APC", {tierWar > 7 && {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count (milbases + airportsX) > 0}}],
+
+    ["UK3CB_NAP_I_T55", 13000, "TANK", {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count (milbases + airportsX) > 0}],
+    ["UK3CB_NAP_I_T72A", 20000, "TANK", {tierWar > 7 && {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count (milbases + airportsX) > 0}}],
+    ["UK3CB_NAP_I_T72BM", 21000, "TANK", {tierWar > 7 && {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count (milbases + airportsX) > 0}}],
     
-    //Artillery / MLRS systems 
-    ["rhsgref_cdf_b_reg_d30", 15000, "ARTILLERY", {tierWar > 3 && {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count (milbases + airportsX) > 0}}],
-    ["rhsgref_cdf_b_2s1", 25000, "ARTILLERY", {tierWar > 5 && {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count (milbases + airportsX) > 1}}],
-    ["UK3CB_ARD_I_Hilux_Rocket_Arty", 45000, "ARTILLERY", {tierWar > 4&& {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count (milbases + airportsX) > 2}}],
-    ["rhsgref_cdf_b_reg_BM21", 90000, "ARTILLERY", {tierWar > 7 && {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count (milbases + airportsX) > 2}}],
-    ["rhsusf_M142_usmc_WD", 130000, "ARTILLERY", {tierWar > 8 && {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count (milbases + airportsX) > 3}}],
+    ["UK3CB_NAP_I_MTLB_ZU23", 7000, "AA", {tierWar > 3}],
+    ["UK3CB_I_G_ZsuTank", 7500, "AA", {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count (milbases + airportsX) > 0}],
 
-    //APC's
-    ["rhsgref_cdf_b_btr80", 7000, "APC", {tierWar > 4}],
-    ["rhsgref_cdf_b_btr70", 6000, "APC", {tierWar > 3}],
-    ["rhs_btr80a_vmf", 12000, "APC", {tierWar > 4 && {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count (milbases + airportsX) > 0}}],
-    ["rhsusf_m966_w", 7000, "APC", {tierWar > 4 && {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count (milbases + airportsX) > 1}}],
+    ["UK3CB_ADA_I_L39_PYLON", 25000, "PLANE", {tierWar > 5 && {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count airportsX > 0}}],
+    ["rhs_l159_CDF", 40000, "PLANE", {tierWar > 7 && {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count airportsX > 0}}],
 
-    //Light Cars
-    ["rhsgref_BRDM2_b", 2000, "CAR", {tierWar > 2}],
-    ["UK3CB_ADE_O_Hilux_Vulcan_Front", 12000, "CAR", {tierWar > 5 && {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count seaports > 1}}],
-    ["UK3CB_AAF_I_SUV_Armed", 15000, "CAR", {tierWar > 6 && {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count seaports > 2}}],
-
-    //IFV's
-    ["rhsgref_cdf_b_bmd1p", 9000, "APC", {tierWar > 4 && {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count (milbases + airportsX) > 0}}],
-    ["rhsgref_cdf_b_bmp2d", 15000, "APC", {tierWar > 5 && {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count (milbases + airportsX) > 1}}],
-    ["UK3CB_MDF_I_Warrior_Cage_Camo", 10000, "APC", {tierWar > 3 && {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count (milbases + airportsX) > 0}}],
-    ["rhs_bmd4ma_vdv", 30000, "APC", {tierWar > 6 && {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count (milbases + airportsX) > 2}}],
-    ["rhs_t15_tv", 60000, "APC", {tierWar > 9 && {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count (milbases + airportsX) > 3}}],
-
-    //Tanks
-    ["UK3CB_O_G_T55", 15000, "TANK", {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count seaports > 1}],
-    ["rhsgref_cdf_b_t80b_tv", 20000, "TANK", {tierWar > 3 && {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count (milbases + airportsX) > 0}}],
-    ["rhs_t72bc_tv", 35000, "TANK", {tierWar > 5 && {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count (milbases + airportsX) > 1}}],
-    ["rhs_t80ue1", 50000, "TANK", {tierWar > 7 && {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count (milbases + airportsX) > 2}}],
-    ["rhs_t14_tv", 125000, "TANK", {tierWar > 9 && {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count (milbases + airportsX) > 4}}],
-    
-    //CAS / Multirole 
-    ["RHSGREF_A29B_HIDF", 20000, "PLANE", {tierWar > 3 && {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count airportsX > 0}}],
-    ["rhs_l159_cdf_b_CDF", 35000, "PLANE", {tierWar > 4 && {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count airportsX > 0}}],
-    ["UK3CB_AAF_I_L39_PYLON", 32000, "PLANE", {tierWar > 4 && {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count airportsX > 1}}],
-    ["I_Plane_Fighter_04_F", 55000, "PLANE", {tierWar > 6 && {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count (milbases + airportsX) > 2}}],
-    ["rhsgref_cdf_b_su25", 45000, "PLANE", {tierWar > 5 && {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count (milbases + airportsX) > 1}}],
-    ["B_T_VTOL_01_armed_F", 65000, "PLANE", {tierWar > 6 && {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count (milbases + airportsX) > 2}}],
-    ["B_Plane_CAS_01_dynamicLoadout_F", 85000, "PLANE", {tierWar > 7 && {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count (milbases + airportsX) > 3}}],
-
-    //Fighters
-    ["rhs_mig29sm_vvs", 45000, "PLANE", {tierWar > 6 && {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count airportsX > 1}}],
-    ["RHS_T50_vvs_generic_ext", 95000, "PLANE", {tierWar > 8 && {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count (milbases + airportsX) > 3}}],
-
-    //Transport helis
-    ["RHS_Mi8mt_vvsc", 8000, "HELI", {tierWar > 4 &&{ {sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count (milbases + airportsX) > 1}}],
-    ["rhs_ka60_c", 8000, "HELI", {tierWar > 4 &&{ {sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count milbases > 0}}],
-
-    //Light armed helis
-    ["RHS_MELB_MH6M", 8000, "HELI", {tierWar > 4 &&{ {sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count airportsX > 0}}],
-    ["UK3CB_B_G_UH1H_GUNSHIP_FIA", 12000, "HELI", {tierWar > 5 &&{ {sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count milbases > 0}}],
-    ["rhs_uh1h_un", 15000, "HELI", {tierWar > 5 &&{ {sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count milbases > 1}}],
-    ["RHS_MELB_AH6M", 15000, "HELI", {tierWar > 6 &&{ {sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count airportsX > 1}}],
-
-    //Heavy Transports
-    ["RHS_Mi8AMTSh_vvsc", 25000, "HELI", {tierWar > 5 &&{ {sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count (milbases + airportsX) > 2}}],
-    ["RHS_UH60M_ESSS_d", 20000, "HELI", {tierWar > 5 &&{ {sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count (milbases + airportsX) > 1}}],
-    
-    //Gunships
-    ["RHS_Mi24P_vvsc", 25000, "HELI", {tierWar > 5 &&{ {sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count (milbases + airportsX) > 1}}],
-    ["rhsgref_un_Mi24V", 25000, "HELI", {tierWar > 5 &&{ {sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count (milbases + airportsX) > 2}}],
-    ["RHS_AH1Z_wd", 32000, "HELI", {tierWar > 6 &&{ {sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count (milbases + airportsX) > 2}}],
-    ["rhs_mi28n_vvsc", 45000, "HELI", {tierWar > 6 &&{ {sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count (milbases + airportsX) > 3}}],
-    ["RHS_Ka52_vvsc", 60000, "HELI", {tierWar > 7 &&{ {sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count (milbases + airportsX) > 3}}],
-    ["RHS_AH64D_wd", 80000, "HELI", {tierWar > 8 &&{ {sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count (milbases + airportsX) > 3}}]
-]] call _fnc_saveToTemplate;
-
-["variants", [
-    ["RHSGREF_A29B_HIDF", ["Brazil",1]],
-    ["RHSGREF_A29B_HIDF", ["MIG",1]]
+    ["UK3CB_ADA_I_Mi8AMTSh", 25000, "HELI", {tierWar > 5 &&{ {sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count airportsX > 0}}]
 ]] call _fnc_saveToTemplate;
 
 #include "3CBF_Reb_Vehicle_Attributes.sqf"
@@ -180,12 +126,22 @@ private _hasLawsOfWar = "orange" in A3A_enabledDLC;
 ///////////////////////////
 
 private _initialRebelEquipment = [
-    "rhsusf_weap_m1911a1", "rhsusf_mag_7x45acp_MHP",
-//  "rhs_weap_m1garand_sa43", "rhsgref_8Rnd_762x63_M2B_M1rifle", "rhsgref_8Rnd_762x63_Tracer_M1T_M1rifle",
-    ["rhs_weap_rpg18", 5],
-    ["IEDUrbanSmall_Remote_Mag", 3], ["IEDLandSmall_Remote_Mag", 3], ["IEDUrbanBig_Remote_Mag", 1], ["IEDLandBig_Remote_Mag", 2],
-    "rhs_sidor",
-    "rhsgref_chicom"
+    "UK3CB_CZ75", "UK3CB_CZ75_9_20Rnd",
+    "rhs_weap_savz61_folded", "rhs_weap_savz61", "rhsgref_10rnd_765x17_vz61", "rhsgref_20rnd_765x17_vz61",
+    "UK3CB_CZ550", "uk3cb_optic_sro", "UK3CB_CZ550_5rnd_Mag", "UK3CB_CZ550_5rnd_Mag_RT",
+    "rhs_weap_Izh18", "rhsgref_1Rnd_00Buck", "rhsgref_1Rnd_Slug",
+    "rhs_weap_kar98k", "rhsgref_5Rnd_792x57_kar98k",
+    "rhs_weap_panzerfaust60",
+    "rhs_grenade_nbhgr39B_mag", "rhs_grenade_sthgr24_mag",
+    ["IEDUrbanSmall_Remote_Mag", 10], ["IEDLandSmall_Remote_Mag", 10], ["IEDUrbanBig_Remote_Mag", 3], ["IEDLandBig_Remote_Mag", 3],
+    "B_FieldPack_oli",
+    "Binocular",
+    "rhs_weap_rsp30_white","rhs_mag_rsp30_white",
+    "rhs_weap_rsp30_green","rhs_mag_rsp30_green",
+    "rhs_weap_rsp30_red", "rhs_mag_rsp30_red",
+    "rhs_mag_nspd", "rhs_mag_nspn_yellow", "rhs_mag_nspn_green", "rhs_mag_nspn_red",
+    "rhsgref_chicom","V_BandollierB_oli",
+    "UK3CB_CHC_C_B_MED", "B_AssaultPack_blk"
 ];
 
 if (A3A_hasTFAR) then {_initialRebelEquipment append ["tf_microdagr","tf_anprc154"]};
@@ -266,7 +222,7 @@ private _rebUniforms = [
     "LivonianHead_9", "LivonianHead_10","Sturrock","WhiteHead_01","WhiteHead_02","WhiteHead_03",
     "WhiteHead_05","WhiteHead_07","WhiteHead_08","WhiteHead_09","WhiteHead_10",
     "WhiteHead_12","WhiteHead_13","WhiteHead_14","WhiteHead_15","WhiteHead_16",
-    "WhiteHead_17","WhiteHead_19","WhiteHead_20","WhiteHead_21","Miller"
+    "WhiteHead_17","WhiteHead_19","WhiteHead_20","WhiteHead_21"
 ]] call _fnc_saveToTemplate;
 ["voices", ["rhs_male01cz","rhs_male02cz","rhs_male03cz","rhs_male04cz","rhs_male05cz"]] call _fnc_saveToTemplate;
 

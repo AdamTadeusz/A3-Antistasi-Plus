@@ -23,15 +23,15 @@ private _vehiclesAA = [];
 ["vehiclesBoat", ["I_C_Boat_Transport_02_F"]] call _fnc_saveToTemplate;
 ["vehiclesPlane", ["I_C_Plane_Civil_01_F"]] call _fnc_saveToTemplate;
 
-private _vehiclesCivCar = ["C_Offroad_01_F", "C_Hatchback_01_F", "C_Hatchback_01_sport_F", "C_SUV_01_F", "C_IDAP_Offroad_01_F"];
+private _vehiclesCivCar = ["C_Offroad_01_F", "C_Hatchback_01_F", "C_Hatchback_01_sport_F", "C_SUV_01_F"];
 ["vehiclesCivTruck", ["C_Truck_02_transport_F", "C_Van_02_transport_F", "C_Van_02_vehicle_F"]] call _fnc_saveToTemplate;
-["vehiclesCivHeli", ["C_Heli_Light_01_civil_F", "C_IDAP_Heli_Transport_02_F"]] call _fnc_saveToTemplate;
+["vehiclesCivHeli", ["C_Heli_Light_01_civil_F"]] call _fnc_saveToTemplate;
 ["vehiclesCivBoat", ["C_Boat_Civil_01_F", "C_Rubberboat"]] call _fnc_saveToTemplate;
 
 
 ["staticMGs", ["I_G_HMG_02_high_F", "I_G_HMG_02_F"]] call _fnc_saveToTemplate;
 ["staticAT", ["I_static_AT_F"]] call _fnc_saveToTemplate;
-private _staticAA = ["Aegis_I_G_ZU23_lxWS_F"];
+private _staticAA = ["I_static_AA_F","Aegis_I_G_ZU23_lxWS_F"];
 ["staticMortars", ["I_G_Mortar_01_F"]] call _fnc_saveToTemplate;
 ["staticMortarMagHE", "8Rnd_82mm_Mo_shells"] call _fnc_saveToTemplate;
 ["staticMortarMagSmoke", "8Rnd_82mm_Mo_Smoke_white"] call _fnc_saveToTemplate;
@@ -77,7 +77,7 @@ private _shopWs = if (_hasWs) then {
 };
 
 private _vehiclesBlackMarket = _shopWs + [
-    ["I_UAV_01_F", 3000, "UAV", {tierWar > 4}],
+    ["I_UAV_01_F", 2000, "UAV", {true}],
     ["I_Static_Designator_01_F", 5000, "UAV", {tierWar > 4}],
     ["Atlas_I_I_UAV_03_dynamicLoadout_F", 13000, "UAV", {tierWar > 6 && {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count (milbases + airportsX) > 1}}],
     ["O_R_UAV_02_dynamicLoadout_F", 10000, "UAV", {tierWar > 5 && {{sidesX getVariable [_x,sideUnknown] isEqualTo teamPlayer} count (milbases + airportsX) > 0}}],
@@ -118,7 +118,12 @@ private _vehiclesBlackMarket = _shopWs + [
 ["blackMarketStock", _vehiclesBlackMarket] call _fnc_saveToTemplate;
 
 ["variants", [
-    ["I_LT_01_AA_F", ["Indep_Olive",1]]
+    ["I_LT_01_AA_F", ["Indep_Olive",1]],
+    ["I_LT_01_scout_F", ["Indep_Olive",1]],
+    ["I_LT_01_cannon_F", ["Indep_Olive",1]],
+    ["I_LT_01_AT_F", ["Indep_Olive",1]],
+    ["I_Heli_Light_01_F", ["Black",1]],
+    ["I_Heli_Light_01_dynamicLoadout_F", ["Black",1]]
 ]] call _fnc_saveToTemplate;
 
 #include "Aegis_Reb_Vehicle_Attributes.sqf"
